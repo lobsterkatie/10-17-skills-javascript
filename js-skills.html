@@ -119,7 +119,7 @@
   var message = document.getElementById("message-to-change");
   var button2 = document.getElementById("change-hello-to-goodbye-button");
   button2.addEventListener("click", function(evt) 
-                                      {message.innerText = "goodbye";} );
+                                      {message.innerHTML = "goodbye"; } );
   //QUESTION FOR MEGGIE: why does innerHTML work but not innerText?
 </script>
 
@@ -149,7 +149,10 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+  var form = document.getElementById("prevent-form-submission-form");
+  form.addEventListener("submit", function(evt) 
+                                  {   evt.preventDefault();
+                                      alert("Salutations!"); } );
 </script>
 
 <div class="hint">
