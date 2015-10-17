@@ -97,8 +97,8 @@
 </fieldset>
 
 <script>
-  var button = document.getElementById("popup-alert-button");
-  button.addEventListener("click", function(evt) {alert("Hello!")} );
+  var button1 = document.getElementById("popup-alert-button");
+  button1.addEventListener("click", function(evt) {alert("Hello!");} );
 </script>
 
 
@@ -116,7 +116,11 @@
 </fieldset>
 
 <script>
-  // code here for above-problem
+  var message = document.getElementById("message-to-change");
+  var button2 = document.getElementById("change-hello-to-goodbye-button");
+  button2.addEventListener("click", function(evt) 
+                                      {message.innerText = "goodbye";} );
+  //QUESTION FOR MEGGIE: why does innerHTML work but not innerText?
 </script>
 
 <div class="hint">
