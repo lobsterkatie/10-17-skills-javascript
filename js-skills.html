@@ -149,8 +149,8 @@
 </fieldset>
 
 <script>
-  var form = document.getElementById("prevent-form-submission-form");
-  form.addEventListener("submit", function(evt) 
+  var form3 = document.getElementById("prevent-form-submission-form");
+  form3.addEventListener("submit", function(evt) 
                                   {   evt.preventDefault();
                                       alert("Salutations!"); } );
 </script>
@@ -260,7 +260,7 @@ button.addEventListener('click', reverseString);
 
 <script>
   var pic6 = $("#kittenz-rule");
-  pic.on("dblclick", function(evt) 
+  pic6.on("dblclick", function(evt) 
                      {   pic6.attr("src", "http://brilliantdogtraining.com/wp-content/uploads/2013/07/Doggy-dogs-27377981-1595-1596.jpg");
                          pic6.attr("width", "50%");
                      } );
@@ -296,8 +296,8 @@ button.addEventListener('click', reverseString);
 </fieldset>
 
 <script>
-    pic7 = $("#cute-porcupine-image");
-    button7 = $("#make-a-porcupine");
+    var pic7 = $("#cute-porcupine-image");
+    var button7 = $("#make-a-porcupine");
     button7.on("click", function(evt) {setTimeout(revealPorcupine, 1000);} );
 
     function revealPorcupine()
@@ -346,7 +346,15 @@ button.addEventListener('click', reverseString);
 </fieldset>
 
 <script>
-  // put your code here
+    var form8 = $("#agreeable-form");
+    form8.on("submit", beAgreeable);
+
+    function beAgreeable(evt)
+    {
+        evt.preventDefault();
+        var food = $("#favorite-food-input").val();
+        $("#agreeable-text").text("I like " + food + ", too!");
+    }
 </script>
 
 <div class="hint">
