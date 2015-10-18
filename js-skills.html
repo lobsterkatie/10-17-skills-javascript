@@ -259,10 +259,10 @@ button.addEventListener('click', reverseString);
 </fieldset>
 
 <script>
-  var pic = $("#kittenz-rule");
+  var pic6 = $("#kittenz-rule");
   pic.on("dblclick", function(evt) 
-                     {   pic.attr("src", "http://brilliantdogtraining.com/wp-content/uploads/2013/07/Doggy-dogs-27377981-1595-1596.jpg");
-                         pic.attr("width", "50%");
+                     {   pic6.attr("src", "http://brilliantdogtraining.com/wp-content/uploads/2013/07/Doggy-dogs-27377981-1595-1596.jpg");
+                         pic6.attr("width", "50%");
                      } );
 </script>
 
@@ -296,7 +296,14 @@ button.addEventListener('click', reverseString);
 </fieldset>
 
 <script>
-  // put your code here
+    pic7 = $("#cute-porcupine-image");
+    button7 = $("#make-a-porcupine");
+    button7.on("click", function(evt) {setTimeout(revealPorcupine, 1000);} );
+
+    function revealPorcupine()
+    {
+        pic7.fadeIn(4000);
+    }
 </script>
 
 <div class="hint">
