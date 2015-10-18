@@ -223,7 +223,16 @@ button.addEventListener('click', reverseString);
 <script src="https://code.jquery.com/jquery.js"></script>
 
 <script>
-    $(".tricky-to-find").on("click", function(evt) {alert("Greetings, Human!");} );
+    var button5 = $(".tricky-to-find");
+    button5.on("click", function(evt) {alert("Greetings, Human!");} );
+    //button5.click(function(evt) {alert("Greetings, Human!");} );
+
+    //QUESTION FOR MEGGIE: I only looked at the hint after the fact, and it 
+    //reminded me about the array vs element issue. But adding [0] to the end
+    //to just get the element, not the array of elements, doesn't work! Why not??
+    //EDIT: even if you find by ID, in regular JS, you get back an array. So what
+    //does the hint mean?
+
 </script>
 
 <div class="hint">
@@ -250,7 +259,11 @@ button.addEventListener('click', reverseString);
 </fieldset>
 
 <script>
-  // put your code here
+  var pic = $("#kittenz-rule");
+  pic.on("dblclick", function(evt) 
+                     {   pic.attr("src", "http://brilliantdogtraining.com/wp-content/uploads/2013/07/Doggy-dogs-27377981-1595-1596.jpg");
+                         pic.attr("width", "50%");
+                     } );
 </script>
 
 <div class="hint">
