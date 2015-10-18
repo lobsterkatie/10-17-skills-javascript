@@ -198,8 +198,6 @@ button.addEventListener('click', reverseString);
    var newMsg = reversedChars.join("");
    alert(newMsg);
  }
-
- 
 </script>
 
 
@@ -222,8 +220,10 @@ button.addEventListener('click', reverseString);
   <input type="button" class="tricky-to-find" value="Pop-Up Please!">
 </fieldset>
 
+<script src="https://code.jquery.com/jquery.js"></script>
+
 <script>
-  // code here for above problem
+    $(".tricky-to-find").on("click", function(evt) {alert("Greetings, Human!");} );
 </script>
 
 <div class="hint">
