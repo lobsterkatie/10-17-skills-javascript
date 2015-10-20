@@ -423,14 +423,20 @@ button.addEventListener('click', reverseString);
 </fieldset>
 
 <script>
+  //listen for click on 'Play!' button to start game
   var startGameButton = $("#play-guessing-game-2");
   startGameButton.on("click", playGame2);
 
 
+  //plays the game until the user guesses the correct number
   function playGame2(evt)
   {
     //now that we're in the game, disable the startGame button
     startGameButton.attr("disabled", "");
+
+    //display directions to the user
+    var messageSpot = $("#number-guessing-msg");
+    messageSpot.html("Please guess a whole number between 1 and 100");
 
     //get ahold of useful DOM elements
     var form10 = $("#guessing-game-2-form");
@@ -441,10 +447,9 @@ button.addEventListener('click', reverseString);
     guessField.removeAttr("disabled");
     guessButton.removeAttr("disabled");
 
-    //get a random target number and a guess which can't be right
+    //get a random target number
     var randomNum = 1 + parseInt(Math.random() * 100);
     console.log("randomNum = " + randomNum); //for debugging
-    var guess = -1;
 
     //listen for form-submission and react to guess when it happens
     form10.on("submit", function(evt) 
@@ -458,22 +463,13 @@ button.addEventListener('click', reverseString);
                           //react to the guess
                           reactToGuess(randomNum, guess);
                         } 
-             );
+             ); //end form-submit listener
 
-    //if guess is correct, end the game by diabling guessField and guessButton 
-    //again, and re-enabling the startGame button
-    // (have to grab guess again since variable went out of scope)
-    //var guess = Number(guessField.val());
-    //if (guess === randomNum)
-    //{
-      //guessField.attr("disabled", "");
-      //guessButton.attr("disabled", "");
-      //startGameButton.removeAttr("disabled");
-    //}
+  } //end function playGame2(evt)
 
-  }
 
-  //displays too-high, too-low, or right-on message
+  //displays too-high, too-low, or right-on message and ends game if guess
+  //is correct
   function reactToGuess(randomNum, guess)
   {
     //get ahold of DOM elements
@@ -501,7 +497,8 @@ button.addEventListener('click', reverseString);
       guessField.val("");
       startGameButton.removeAttr("disabled");
     }
-  }
+
+  } //end function reactToGuess(randomNum, guess)
 
 </script>
 
