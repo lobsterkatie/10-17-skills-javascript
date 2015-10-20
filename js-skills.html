@@ -72,7 +72,7 @@
   <b>Note:</b> you should only add Javascript; you cannot change the HTML otherwise <b>at all</b>.
 </p>
 
-<img src="http://cdn.meme.am/instances/500x/58307737.jpg">
+<!-- <img src="http://cdn.meme.am/instances/500x/58307737.jpg"> -->
 
 
 
@@ -423,7 +423,86 @@ button.addEventListener('click', reverseString);
 </fieldset>
 
 <script>
-  // put your code here
+  var startGameButton = $("#play-guessing-game-2");
+  startGameButton.on("click", playGame2);
+
+
+  function playGame2(evt)
+  {
+    //now that we're in the game, disable the startGame button
+    startGameButton.attr("disabled", "");
+
+    //get ahold of useful DOM elements
+    var form10 = $("#guessing-game-2-form");
+    var guessField = $("#number-guessed");
+    var guessButton = $("#try-this-number");
+
+    //enable guess field and guess button
+    guessField.removeAttr("disabled");
+    guessButton.removeAttr("disabled");
+
+    //get a random target number and a guess which can't be right
+    var randomNum = 1 + parseInt(Math.random() * 100);
+    console.log("randomNum = " + randomNum); //for debugging
+    var guess = -1;
+
+    //listen for form-submission and react to guess when it happens
+    form10.on("submit", function(evt) 
+                        {
+                          //keep the form from actually submitting
+                          evt.preventDefault();
+
+                          //get the guess and make it a number
+                          var guess = Number(guessField.val());
+
+                          //react to the guess
+                          reactToGuess(randomNum, guess);
+                        } 
+             );
+
+    //if guess is correct, end the game by diabling guessField and guessButton 
+    //again, and re-enabling the startGame button
+    // (have to grab guess again since variable went out of scope)
+    //var guess = Number(guessField.val());
+    //if (guess === randomNum)
+    //{
+      //guessField.attr("disabled", "");
+      //guessButton.attr("disabled", "");
+      //startGameButton.removeAttr("disabled");
+    //}
+
+  }
+
+  //displays too-high, too-low, or right-on message
+  function reactToGuess(randomNum, guess)
+  {
+    //get ahold of DOM elements
+    var messageSpot = $("#number-guessing-msg");
+    var startGameButton = $("#play-guessing-game-2");
+    var guessField = $("#number-guessed");
+    var guessButton = $("#try-this-number");
+
+    if (guess < randomNum)
+    {
+      messageSpot.html("Too low.");
+    }
+    else if (guess > randomNum)
+    {
+      messageSpot.html("Too high.");
+    }
+    else //they got it right!
+    {
+      messageSpot.html("You got it!");
+
+      //end the game by diabling guessField and guessButton again, clearing the
+      //guess filed, and re-enabling the startGame button
+      guessField.attr("disabled", "");
+      guessButton.attr("disabled", "");
+      guessField.val("");
+      startGameButton.removeAttr("disabled");
+    }
+  }
+
 </script>
 
 
@@ -497,6 +576,6 @@ button.addEventListener('click', reverseString);
 </script>
 
 
-<script src="js-skills.js"></script>
+<!-- <script src="js-skills.js"></script> -->
 </body>
 </html>
